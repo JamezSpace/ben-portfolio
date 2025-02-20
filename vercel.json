@@ -1,0 +1,12 @@
+{
+    "version": 2,
+    "routes": [
+        {
+            "src": "/api/static-images",
+            "dest": "/api/cloudinary.js"
+        }
+    ],
+    "env": {
+        "YOUR_ENV_VARIABLE": "value"
+    }
+}

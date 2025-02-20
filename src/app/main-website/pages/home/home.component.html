@@ -1,0 +1,178 @@
+<div id="pseudo-body" [className]="nav_bar_opened ? 'nav-bar-opened' : ''">
+    <header id="home" class="w-full h-[95svh] medium-screen:h-[97svh] flow-root">
+        <nav id="header-nav" class="flex items-center justify-between">
+            <a href="/" class="logo-container">
+                <img src="myLogo.png" alt="my_custom_logo">
+            </a>
+            <a href="#about">About Me</a>
+            <a href="#">Services</a>
+            <a href="#works">My Works</a>
+            <a href="#contact">Contact Me</a>
+            <span (click)="nav_bar_opened = !nav_bar_opened">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 20 20">
+                    <rect width="20" height="20" fill="none" />
+                    <g fill="#0d110f" fill-rule="evenodd" clip-rule="evenodd">
+                        <path
+                            d="M2.5 9.2a1 1 0 0 1 1-1h10.308a1 1 0 1 1 0 2H3.5a1 1 0 0 1-1-1m0-4a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2h-14a1 1 0 0 1-1-1m0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2h-14a1 1 0 0 1-1-1m0 4a1 1 0 0 1 1-1h10.308a1 1 0 1 1 0 2H3.5a1 1 0 0 1-1-1"
+                            opacity="0.2" />
+                        <path
+                            d="M2 8.5a.5.5 0 0 1 .5-.5h11.308a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1h-15a.5.5 0 0 1-.5-.5m0 8a.5.5 0 0 1 .5-.5h15a.5.5 0 0 1 0 1h-15a.5.5 0 0 1-.5-.5m0 4a.5.5 0 0 1 .5-.5h11.308a.5.5 0 0 1 0 1H2.5a.5.5 0 0 1-.5-.5" />
+                    </g>
+                </svg>
+            </span>
+        </nav>
+
+        <h1
+            class="fluid-heading text-gradient inline-block mt-32 py-[5%] px-[4%] capitalize  font-merriweather -tracking-[1px]">
+            <span class="colored-gradient first-line-gradient">Comic Book Colorist</span>
+            <br>
+            <span class="colored-gradient second-line-gradient">Cover Artist</span>
+            <br>
+            <span class="colored-gradient third-line-gradient">Pinup Colorist</span>
+        </h1>
+
+        <nav id="mobile-nav" [className]="nav_bar_opened ? 'active' : ''">
+            <span (click)="nav_bar_opened = !nav_bar_opened" class="text-xl my-5">
+                <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+                    <rect width="24" height="24" fill="none" />
+                    <path fill="currentColor" fill-rule="evenodd"
+                        d="M6.793 6.793a1 1 0 0 1 1.414 0L12 10.586l3.793-3.793a1 1 0 1 1 1.414 1.414L13.414 12l3.793 3.793a1 1 0 0 1-1.414 1.414L12 13.414l-3.793 3.793a1 1 0 0 1-1.414-1.414L10.586 12L6.793 8.207a1 1 0 0 1 0-1.414"
+                        clip-rule="evenodd" />
+                </svg>
+            </span>
+            <a href="#about" class="section">About Me</a>
+            <a href="#" class="section">Services</a>
+            <a href="#works" class="section">My Works</a>
+            <a href="#contact" class="section">Contact Me</a>
+        </nav>
+    </header>
+
+    <div id="about" class="py-12 px-6 text-center">
+        <!-- First slide -->
+        <section id="slide_one" class="active">
+            <h2 class=" text-4xl my-2 mx-auto">Welcome to my page, I go by Benedict Adukanle.</h2>
+            <div class="profileImageHolder"><img src="ben.jpeg" alt="portrait picture of me"></div><br>
+        </section>
+
+        <!-- Second slide -->
+        <section id="slide_two">
+            <aside>
+                <div class="profileImageHolder"><img src="ben.jpeg" alt="portrait picture of me"></div>
+                <h2 class="accent">Benedict Adukanle</h2>
+            </aside>
+            <main>
+                I'm a digital artist specializing in <span class="text-gradient inline-text">comic book coloring</span>
+                . I'm looking for new clients to work with, and I was wondering if you might be interested in my
+                services. I'm passionate about my work and I strive to deliver high-quality results. Please let me know
+                if you'd like to discuss my rates or see some of my past work. I'd love to chat with you about how I can
+                help bring your vision to life! Thanks for your time.
+            </main>
+        </section>
+
+        <!-- Navigators -->
+        <div class="navigators flex w-20 h-[30px] justify-evenly items-center my-0 mx-auto">
+            <div class="nav active" id="nav-1" data-points_to="slide_one" data-time_delay="3"></div>
+            <div class="nav" id="nav-2" data-points_to="slide_two" data-time_delay="10"></div>
+        </div>
+    </div>
+
+    <div id="works" class="py-8 px-6 small-screen:px-3">
+        <h2 class="fluid-heading  text-center">My Works</h2>
+        <section class="overview">
+            <section class="innerwrapper">
+                @for (image_url of images_ready_for_render(); track $index) {
+                     <advanced-image loading="lazy" [cldImg]="image_url"></advanced-image>
+                }
+            </section>
+        </section>
+    </div>
+
+    <dialog id="image-viewer">
+        <div class="image-viewer-open">
+            <span class="image-container">
+                <img src="" alt="" id="image">
+            </span>
+            <article class="narration"></article>
+            <section class="navigators flex">
+                <span class="arrow round-circle" id="left-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <rect width="24" height="24" fill="none" />
+                        <path fill="none" stroke="#0d110f" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="1.5" d="m14 7l-5 5l5 5" />
+                    </svg>
+                </span>
+                <span class="arrow round-circle" id="right-arrow">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <rect width="24" height="24" fill="none" />
+                        <path fill="none" stroke="#0d110f" stroke-linecap="round" stroke-linejoin="round"
+                            stroke-width="1.5" d="m10 17l5-5l-5-5" />
+                    </svg>
+                </span>
+            </section>
+        </div>
+        <span id="close-dialog" class="round-circle">&times;</span>
+    </dialog>
+
+    <div class="my-background">
+        <div id="contact" class="flex flex-wrap card w-[85%] py-6 px-[3.5vw] my-[10px] mx-auto gap-10 overflow-hidden">
+            <h2 class="mb-[50px] uppercase text-[2rem] ">contact me</h2>
+            <form action="/submit" name="contactMe" method="post">
+                <span class="box">
+                    <input type="text" name="name" id="name" placeholder="name" maxlength="20" autocomplete="off"
+                        data-error_icon="name_exclaim">
+                    <div class="red-circle">
+                        <span class="caution">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <rect width="24" height="24" fill="none" />
+                                <g fill="none" stroke="#e30029" stroke-width="1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M13.253 5.98L12 13.5l-1.253-7.52a1.27 1.27 0 1 1 2.506 0" />
+                                    <circle cx="12" cy="19" r="1" stroke-width="2" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="tooltip"></span>
+                    </div>
+                </span>
+
+                <span class="box">
+                    <input type="email" name="email" id="email" placeholder="email" autocomplete="off"
+                        onblur="valEmail()" data-error_icon="email_exclaim">
+                    <div class="red-circle">
+                        <span class="caution">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <rect width="24" height="24" fill="none" />
+                                <g fill="none" stroke="#e30029" stroke-width="1">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                        d="M13.253 5.98L12 13.5l-1.253-7.52a1.27 1.27 0 1 1 2.506 0" />
+                                    <circle cx="12" cy="19" r="1" stroke-width="2" />
+                                </g>
+                            </svg>
+                        </span>
+                        <span class="tooltip"></span>
+                    </div>
+                </span>
+
+                <span class="box">
+                    <textarea name="message" id="message" cols="30" rows="10" placeholder="message" required></textarea>
+                    <span class="red-circle" id="msg_exclaim" class="caution">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <rect width="24" height="24" fill="none" />
+                            <g fill="none" stroke="#e30029" stroke-width="1">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3"
+                                    d="M13.253 5.98L12 13.5l-1.253-7.52a1.27 1.27 0 1 1 2.506 0" />
+                                <circle cx="12" cy="19" r="1" stroke-width="2" />
+                            </g>
+                        </svg>
+                    </span>
+                </span>
+
+                <button type="submit" id="btn_submit" disabled>send</button><button type="reset">cancel</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="flex justify-center items-center h-[7vh]">
+        <div id="text">&copy;Benedict Adukanle <span id="year"></span></div>
+    </footer>
+</div>

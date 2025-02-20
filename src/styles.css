@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --red: #c1121f;
+    --text: #050315;
+    --text-opacity-six: #05031560;
+    --background: #fff;
+    --background-opacity-six: #fff6;
+    --primary: #006d77;
+    --primary-shade : #83c5be;
+    --accent: #e29578;
+    --accent-shade : #ffddd2;
+    --secondary: #edf6f9;
+}
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Alegreya", sans-serif;
+    background: var(--background);
+    color: var(--text);
+    position: relative;
+}
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+img {
+    object-fit: cover;
+    object-position: center;
+}
+h1, h2 {
+    @apply font-bold;
+    /* @apply mb-5; */
+}
+::backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.nav-bar-opened {
+    background-color: var(--text);
+}
