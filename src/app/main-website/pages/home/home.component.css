@@ -10,7 +10,7 @@
     color: inherit;
     font-family: "Raleway", sans-serif;
     font-weight: 400;
-    font-size: 1.15rem;
+    font-size: 1rem;
     position: relative;
 }
 
@@ -112,7 +112,7 @@ a.logo-container img {
     line-height: 50px;
 }
 
-#mobile-nav > :not(a) {
+#mobile-nav> :not(a) {
     display: block;
     margin: 30px 0;
     cursor: pointer;
@@ -120,7 +120,11 @@ a.logo-container img {
 
 
 .fluid-heading {
-    font-size: clamp(2.4rem, 5vw + .5rem, 4.5rem);
+    font-size: clamp(2.4rem, 5vw + .5rem, 3.75rem);
+}
+
+.fluid-subheading {
+    font-size: clamp(1.2rem, 0.7227rem + 2.3864vw, 2.25rem);
 }
 
 .text-gradient {
@@ -177,6 +181,7 @@ a.logo-container img {
     background-repeat: no-repeat;
 }
 
+/* About Me section */
 #about {
     width: 100%;
     text-align: center;
@@ -187,16 +192,13 @@ a.logo-container img {
 }
 
 #about section {
-    display: none;
+    display: flex;
 }
 
 #about section#slide_one {
+    gap: 50px;
     flex-direction: column;
     align-items: center;
-}
-
-#about section.active {
-    display: flex;
 }
 
 #about .profileImageHolder {
@@ -220,13 +222,13 @@ a.logo-container img {
     position: relative;
     z-index: 1;
 }
+
 #about #slide_one .profileImageHolder:hover {
     outline-offset: 3.5px;
     outline-color: var(--accent);
 }
 
 #about #slide_two {
-    display: none;
     flex-wrap: wrap;
     gap: 0;
     justify-content: center;
@@ -241,9 +243,9 @@ a.logo-container img {
     flex: 1 1 30%;
     color: var(--background);
 }
+
 #about #slide_two aside h2 {
     margin: 0.5em auto;
-    font-size: 2rem;
     text-decoration: underline;
     /* color: var(--background); */
 }
@@ -251,43 +253,26 @@ a.logo-container img {
 #about #slide_two main {
     flex: 1 1 70%;
     padding: .5em;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
-#about .navigators {
+/* Swiper section */
+.navigators {
     -webkit-transform: translateY(100%);
     transform: translateY(100%);
 }
 
-.navigators div {
-    width: 15px;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-    outline: 1px solid;
-    outline-color: transparent;
-    margin: 0 auto;
-    cursor: pointer;
-    pointer-events: auto;
-    -webkit-transition: all 0.5s ease;
-    transition: all 0.5s ease;
-    background-color: var(--secondary);
-    opacity: 0.7;
+/* Services Section */
+#services-section {
+    background-image: linear-gradient(to bottom, var(--primary) 20px, rgb(0, 0, 0) 35%);
+    background-size: cover;
 }
 
-@supports (outline-offset: 4.5px) {
-    .navigators div.active {
-        outline-offset: 4.5px;
-        outline-color: var(--secondary);
-        opacity: 1;
-    }
+.bento-grid>* {
+    flex: 1 0 30vw;
 }
 
-@supports not (outline-offset: 4.5px) {
-    .navigators div.active {
-        box-shadow: 0 0 0 3px var(--primary), 0 0 0 4px var(--secondary);
-        opacity: 1;
-    }
-}
+/* Other random works section */
 .overview {
     width: 100%;
     height: auto;
@@ -300,14 +285,14 @@ a.logo-container img {
 }
 
 @media screen and (max-width: 850px) {
-    #works .overview {
+    #other-random-works .overview {
         border-radius: calc(20px + 1.25em);
         padding: 1.25em;
     }
 }
 
 @media screen and (max-width: 600px) {
-    #works .overview {
+    #other-random-works .overview {
         border-radius: calc(20px + 1em);
         padding: 1em;
     }
@@ -322,20 +307,18 @@ a.logo-container img {
         radial-gradient(200px at right 400px bottom 150px, #ff4d6d 100%, #0000),
         radial-gradient(200px at bottom 400px left 150px, #9A97B4 100%, #0000),
         radial-gradient(200px at top 400px right 150px, #ff9100 100%, #0000);
+    -webkit-transform: rotate(0deg) translateZ(0);
+    transform: rotate(0deg) translateZ(0);
+    -webkit-filter: blur(120px);
     filter: blur(120px);
     opacity: .5;
     z-index: -1;
-}
-
-.overview:after {
-    transition: .5s, 99999s 99999s transform;
+    transition: .5s, 600s linear transform;
 }
 
 .overview:hover:after {
-    -webkit-transform: rotate(36000deg);
-    transform: rotate(36000deg);
-    -webkit-transition: .5s, 600s linear transform;
-    transition: .5s, 600s linear transform;
+    -webkit-transform: rotate(36000deg) translateZ(0);
+    transform: rotate(36000deg) translateZ(0);
 }
 
 .overview .innerwrapper {
@@ -348,7 +331,8 @@ a.logo-container img {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: .75em;
     justify-content: center;
-     align-items: center; /*commenting this line makes all images same height */
+    align-items: center;
+    /*commenting this line makes all images same height */
 }
 
 .innerwrapper img {

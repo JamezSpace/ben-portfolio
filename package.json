@@ -25,7 +25,9 @@
     "@cloudinary/url-gen": "^1.21.0",
     "cloudinary": "^2.5.1",
     "express": "^4.18.2",
+    "gsap": "^3.12.7",
     "rxjs": "~7.8.0",
+    "swiper": "^11.2.4",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"
   },

@@ -8,7 +8,8 @@
     --text-opacity-six: #05031560;
     --background: #fff;
     --background-opacity-six: #fff6;
-    --primary: #006d77;
+    /* --primary: #006d77; */
+    --primary: #2a6a5d;
     --primary-shade : #83c5be;
     --accent: #e29578;
     --accent-shade : #ffddd2;
@@ -19,6 +20,12 @@
 }
 html {
     scroll-behavior: smooth;
+    font-size: 20px;
+}
+@media screen and (max-width: 375px) {
+    html {
+        font-size: 16px;
+    }
 }
 body {
     margin: 0;
@@ -27,6 +34,7 @@ body {
     background: var(--background);
     color: var(--text);
     position: relative;
+    overflow-x: hidden;
 }
 a {
     text-decoration: none;
@@ -38,7 +46,9 @@ img {
 }
 h1, h2 {
     @apply font-bold;
-    /* @apply mb-5; */
+}
+button, input {
+    font-size: revert;
 }
 ::backdrop {
     background-color: rgba(0, 0, 0, 0.8);
